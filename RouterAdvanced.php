@@ -1,5 +1,5 @@
 <?php
-    require_once 'Controller/TasksController.php';
+    require_once 'Controller/VinotecaController.php';
     require_once 'Controller/TasksAdvanceController.php';
     require_once 'RouterClass.php';
     
@@ -9,13 +9,13 @@
     $r = new Router();
 
     // rutas
-    $r->addRoute("home", "GET", "TasksController", "Home");
+    $r->addRoute("home", "GET", "VinotecaController", "Home");
 
     //Esto lo veo en TasksView
-    $r->addRoute("insert", "POST", "TasksController", "InsertTask");
+    $r->addRoute("insert", "POST", "VinotecaController", "InsertTask");
 
-    $r->addRoute("delete/:ID", "GET", "TasksController", "BorrarLaTaskQueVienePorParametro");
-    $r->addRoute("completar/:ID", "GET", "TasksController", "MarkAsCompletedTask");
+    $r->addRoute("delete/:ID", "GET", "VinotecaController", "BorrarLaTaskQueVienePorParametro");
+    $r->addRoute("completar/:ID", "GET", "VinotecaController", "MarkAsCompletedTask");
 
     //Ruta por defecto.
     $r->setDefaultRoute("VinoController", "Home");
