@@ -9,6 +9,7 @@
 
     // rutas
     $r->addRoute("home", "GET", "VinotecaController", "Home");
+    $r->addRoute("", "GET", "VinotecaController", "Home");
 
     //Esto lo veo en TasksView
     $r->addRoute("insert", "POST", "VinotecaController", "InsertTask");
