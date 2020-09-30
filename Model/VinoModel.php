@@ -1,6 +1,6 @@
 <?php
 
-class VinotecaModel{
+class VinoModel{
 
     private $db;
 

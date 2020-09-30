@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-09-30 16:46:16
+/* Smarty version 3.1.34-dev-7, created on 2020-09-30 22:48:05
   from 'C:\xampp\htdocs\TPEweb2\templates\provisorio.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5f749a38ba6921_99871943',
+  'unifunc' => 'content_5f74ef055f7031_17765453',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '15045ce63c000995e91163a50754ce5a50cb0bfe' => 
     array (
       0 => 'C:\\xampp\\htdocs\\TPEweb2\\templates\\provisorio.tpl',
-      1 => 1601477171,
+      1 => 1601497247,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5f749a38ba6921_99871943 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5f74ef055f7031_17765453 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,7 +31,7 @@ function content_5f749a38ba6921_99871943 (Smarty_Internal_Template $_smarty_tpl)
 </head>
 <body>
     <div style="text-align: center;"><?php echo $_smarty_tpl->tpl_vars['titulo']->value;?>
-</div>
+</div><span><a href="categorias">Categorias de vinos</a></span>
     <div>
         <ul>
             <?php

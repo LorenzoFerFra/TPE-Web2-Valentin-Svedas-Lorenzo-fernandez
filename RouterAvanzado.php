@@ -1,5 +1,6 @@
 <?php
-    require_once 'Controller/VinotecaController.php';
+    require_once 'Controller/VinoController.php';
+    require_once 'Controller/CategoriaController.php';
     require_once 'RouterClass.php';
     
     // CONSTANTES PARA RUTEO
@@ -8,20 +9,18 @@
     $r = new Router();
 
     // rutas
-    $r->addRoute("home", "GET", "VinotecaController", "Home");
-   // $r->addRoute("", "GET", "VinotecaController", "Home");
-    $r->addRoute("detalle/:ID", "GET", "VinotecaController", "detailWine");
+    $r->addRoute("home", "GET", "VinoController", "Home");
+    $r->addRoute("categorias", "GET", "CategoriaController", "Home");
+   // $r->addRoute("", "GET", "VinoController", "Home");
+    $r->addRoute("detalle/:ID", "GET", "VinoController", "detailWine");
    
-    $r->addRoute("insert", "POST", "VinotecaController", "InsertTask");
+    $r->addRoute("insert", "POST", "VinoController", "InsertTask");
 
-    $r->addRoute("delete/:ID", "GET", "VinotecaController", "BorrarLaTaskQueVienePorParametro");
-    $r->addRoute("completar/:ID", "GET", "VinotecaController", "MarkAsCompletedTask");
+    $r->addRoute("delete/:ID", "GET", "VinoController", "BorrarLaTaskQueVienePorParametro");
+    $r->addRoute("completar/:ID", "GET", "VinoController", "MarkAsCompletedTask");
 
     //Ruta por defecto.
-    $r->setDefaultRoute("VinotecaController", "Home");
-
-    //Advance
-    $r->addRoute("autocompletar", "GET", "TasksAdvanceController", "AutoCompletar");
+    $r->setDefaultRoute("VinoController", "Home");
 
     //run
     $r->route($_GET['action'], $_SERVER['REQUEST_METHOD']); 
