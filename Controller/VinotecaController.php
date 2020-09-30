@@ -16,8 +16,15 @@ class VinotecaController{
     function Home(){
         $wines = $this->model->GetWines();
         $this->view->ShowHome($wines);
-
     }
+    
+    function detailWine($params = null){
+        $id_wine = $params[':ID'];
+        $wine= $this->model->GetWine($id_wine);
+
+         $this->view->ShowDetailWine($wine);
+    }
+
 
 }
 

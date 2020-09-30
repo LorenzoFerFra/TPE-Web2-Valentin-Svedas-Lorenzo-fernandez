@@ -9,16 +9,16 @@
 
     // rutas
     $r->addRoute("home", "GET", "VinotecaController", "Home");
-    $r->addRoute("", "GET", "VinotecaController", "Home");
-
-    //Esto lo veo en TasksView
+   // $r->addRoute("", "GET", "VinotecaController", "Home");
+    $r->addRoute("detalle/:ID", "GET", "VinotecaController", "detailWine");
+   
     $r->addRoute("insert", "POST", "VinotecaController", "InsertTask");
 
     $r->addRoute("delete/:ID", "GET", "VinotecaController", "BorrarLaTaskQueVienePorParametro");
     $r->addRoute("completar/:ID", "GET", "VinotecaController", "MarkAsCompletedTask");
 
     //Ruta por defecto.
-    $r->setDefaultRoute("VinoController", "Home");
+    $r->setDefaultRoute("VinotecaController", "Home");
 
     //Advance
     $r->addRoute("autocompletar", "GET", "TasksAdvanceController", "AutoCompletar");
