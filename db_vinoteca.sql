@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 25-09-2020 a las 19:14:45
+-- Tiempo de generación: 30-09-2020 a las 21:39:51
 -- Versión del servidor: 10.4.14-MariaDB
 -- Versión de PHP: 7.4.9
 
@@ -33,6 +33,13 @@ CREATE TABLE `categoria` (
   `color` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Volcado de datos para la tabla `categoria`
+--
+
+INSERT INTO `categoria` (`id`, `tipo`, `color`) VALUES
+(1, 'Tinto', ' Rojo purpúreo');
+
 -- --------------------------------------------------------
 
 --
@@ -43,12 +50,20 @@ CREATE TABLE `vino` (
   `id` int(11) NOT NULL,
   `nombre` varchar(50) NOT NULL,
   `descripcion` varchar(250) NOT NULL,
-  `cuerpo` varchar(100) NOT NULL,
-  `año_cosecha` date NOT NULL,
+  `ano_cosecha` date NOT NULL,
   `origen` varchar(50) NOT NULL,
   `alcohol` double NOT NULL,
-  `id_categoria` int(11) NOT NULL
+  `stock` tinyint(1) DEFAULT NULL,
+  `id_categoria` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `vino`
+--
+
+INSERT INTO `vino` (`id`, `nombre`, `descripcion`, `ano_cosecha`, `origen`, `alcohol`, `stock`, `id_categoria`) VALUES
+(4, 'Estancia Mendoza', 'Se trata de un vino de profundo color rojo violáceo, brillante, de nariz intensa, en donde se destacan los aromas de frutas negras y rojas, como moras, ciruelas y guindas junto a ores como las violetas, menta, características del varietal, amalgamada', '2020-05-22', 'Mendoza', 14, 1, 1),
+(7, 'Viña de balbo', 'Vista rojo rubí en nariz aroma frutado y floral. Recuerda a frutillas, cerezas y frambuesas en boca vino joven, fresco y fácil de beber todos los días', '2020-08-12', 'Mendoza', 13, 1, 1);
 
 --
 -- Índices para tablas volcadas
@@ -66,7 +81,8 @@ ALTER TABLE `categoria`
 --
 ALTER TABLE `vino`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `id_categoria` (`id_categoria`);
+  ADD KEY `id_categoria` (`id_categoria`),
+  ADD KEY `id_categoria_2` (`id_categoria`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -76,13 +92,13 @@ ALTER TABLE `vino`
 -- AUTO_INCREMENT de la tabla `categoria`
 --
 ALTER TABLE `categoria`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `vino`
 --
 ALTER TABLE `vino`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Restricciones para tablas volcadas
