@@ -6,11 +6,10 @@
     <title>{$titulo}</title>
 </head>
 <body>
-    <div style="text-align: center;">{$titulo}</div><span><a href="categorias">Categorias de vinos</a></span>
     <div>
         <ul>
-            {foreach from=$wines item=vino}
-            <li><a href="detalle/{$vino->id}">{$vino->nombre} </a>: <span>{$vino->descripcion}</span></li>      
+            {foreach from=$categorias item=categoria}
+            <li>{$categoria->tipo} : Color característico, <span>{$categoria->color}</span></li>      
             {/foreach} 
         </ul>
     </div>

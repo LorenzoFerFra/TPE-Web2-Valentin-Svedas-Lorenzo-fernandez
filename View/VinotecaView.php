@@ -27,6 +27,14 @@ class VinotecaView{
 
     }
 
+    function ShowCategories($category){
+        $smarty = new Smarty();
+        $smarty->assign('categorias', $category);
+      
+        $smarty->display('templates/categories.tpl');  
+
+    }
+
     function ShowHomeLocation(){
        header("Location: ".BASE_URL."home");
     }

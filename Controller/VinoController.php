@@ -1,16 +1,16 @@
 <?php
 
-require_once "./Model/VinotecaModel.php";
+require_once "./Model/VinoModel.php";
 require_once "./View/VinotecaView.php";
 
-class VinotecaController{
+class VinoController{
 
     private $view;
     private $model;
 
     function __construct(){
         $this->view = new VinotecaView();
-        $this->model = new VinotecaModel();
+        $this->model = new VinoModel();
     }
 
     function Home(){
@@ -24,6 +24,8 @@ class VinotecaController{
 
          $this->view->ShowDetailWine($wine);
     }
+
+
 
 
 }
