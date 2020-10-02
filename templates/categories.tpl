@@ -1,17 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{$titulo}</title>
-</head>
-<body>
+{include file="header.tpl"}
+
     <div>
-        <ul>
+        <h1>Categorias de vinos:</h1>
+        <ul class="list-group list-group-flush">
             {foreach from=$categorias item=categoria}
-            <li>{$categoria->tipo} : Color característico, <span>{$categoria->color}</span></li>      
+            <li class="list-group-item">{$categoria->tipo} : Color característico,  {$categoria->color}</li>      
             {/foreach} 
         </ul>
     </div>
-</body>
-</html>
+{include file="footer.tpl"}
