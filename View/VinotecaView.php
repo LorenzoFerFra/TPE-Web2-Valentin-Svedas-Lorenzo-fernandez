@@ -8,15 +8,15 @@ class VinotecaView{
     
 
     function __construct(){
-        $this->title = "Vinoteca";
+        $this->title = "Vinoteca el mendocino";
     }
 
     function ShowHome($wines){
         $smarty = new Smarty();
         $smarty->assign('titulo', $this->title);
-        $smarty->assign('wines', $wines);
-      
-        $smarty->display('templates/provisorio.tpl'); // muestro el template 
+        $smarty->assign('vinos', $wines);
+        
+        $smarty->display('templates/vinoteca.tpl'); // muestro el template 
     }
 
     function ShowDetailWine($wine){
