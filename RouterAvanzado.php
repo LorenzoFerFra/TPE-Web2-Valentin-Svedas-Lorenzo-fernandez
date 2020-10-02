@@ -13,11 +13,15 @@
     $r->addRoute("categorias", "GET", "CategoriaController", "Home");
    // $r->addRoute("", "GET", "VinoController", "Home");
     $r->addRoute("detalle/:ID", "GET", "VinoController", "detailWine");
-   
+    $r->addRoute("edit/:ID", "GET", "VinoController", "EditWine");
+    $r->addRoute("edit/editwine", "POST", "VinoController", "Edit");
+
+
     $r->addRoute("insert", "POST", "VinoController", "InsertTask");
 
     $r->addRoute("delete/:ID", "GET", "VinoController", "BorrarLaTaskQueVienePorParametro");
     $r->addRoute("completar/:ID", "GET", "VinoController", "MarkAsCompletedTask");
+  
 
     //Ruta por defecto.
     $r->setDefaultRoute("VinoController", "Home");

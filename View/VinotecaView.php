@@ -37,15 +37,18 @@ class VinotecaView{
 
     }
 
-    function ShowAdmin($wines){
-       $this->ShowHome($wines);
-       $smarty = new Smarty();
-       
-       $smarty->display('templates/administrate.tpl');  
+    function ShowEditWine($wine,$category){
+        $smarty = new Smarty();
+        $smarty->assign('wine', $wine);
+        $smarty->assign('titulo', $this->title);
+        $smarty->assign('categorias',$category);
+
+        $smarty->display('templates/editWine.tpl');
+        
     }
 
     function ShowHomeLocation(){
-       header("Location: ".BASE_URL."home");
+       header("Location: ".BASE_URL."Home");
     }
 
     

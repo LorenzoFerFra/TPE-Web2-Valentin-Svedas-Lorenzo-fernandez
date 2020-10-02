@@ -33,9 +33,9 @@ class VinoModel{
     }
 
     
-    function updateWine($id_wine){
-        $query = $this->db->prepare("UPDATE vino SET stock=1 WHERE id=?");
-        $query->execute(array($wine_id));
+    function updateWine($nombre,$descripcion,$ano_cosecha,$origen,$alcohol,$stock,$categoria,$id){
+        $query = $this->db->prepare("UPDATE vino SET nombre='$nombre',descripcion='$descripcion',ano_cosecha='$ano_cosecha',origen='$origen',alcohol='$alcohol',stock='$stock',id_categoria='$categoria' WHERE id=?");
+        $query->execute(array($id));
     }
 
 }

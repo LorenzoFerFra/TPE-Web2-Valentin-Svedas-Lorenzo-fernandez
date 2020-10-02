@@ -18,6 +18,8 @@ class CategoriaController{
         $this->view->ShowCategories($categories);
     }
 
+    
+
 
 
 }

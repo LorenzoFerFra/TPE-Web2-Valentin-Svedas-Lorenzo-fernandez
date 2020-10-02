@@ -1,6 +1,5 @@
 {include file="header.tpl"}
     <div class="container" >
-    <h1 >{$titulo}</h1>
     <a href="categorias" class="text-secondary">Categorias de vinos</a>
     </div>
     <div>
