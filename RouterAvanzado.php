@@ -10,7 +10,9 @@
 
     // rutas
     $r->addRoute("home", "GET", "VinoController", "Home");
-    $r->addRoute("categories", "GET", "CategoriaController", "Home");
+   
+  
+  
    // $r->addRoute("", "GET", "VinoController", "Home");
     $r->addRoute("detalle/:ID", "GET", "VinoController", "detailWine");
 
@@ -20,7 +22,13 @@
 
     $r->addRoute("insert", "POST", "VinoController", "InsertWine");
 
-    $r->addRoute("delete/:ID", "GET", "VinoController", "DeleteWine");  
+    $r->addRoute("delete/:ID", "GET", "VinoController", "DeleteWine"); 
+    
+    $r->addRoute("categories", "GET", "CategoriaController", "Home");
+    $r->addRoute("categorie/volver", "GET", "CategoriaController", "resetHome");
+    $r->addRoute("categorie/:ID", "GET", "CategoriaController", "Categorie");
+
+
 
     //Ruta por defecto.
     $r->setDefaultRoute("VinoController", "Home");

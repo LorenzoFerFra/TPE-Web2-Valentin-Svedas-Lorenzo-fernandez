@@ -1,5 +1,6 @@
 <?php
 
+
 class CategoriaModel{
 
     private $db;
@@ -14,6 +15,14 @@ class CategoriaModel{
         $query -> execute();
         return $query->fetchAll(PDO::FETCH_OBJ);
     }
+
+    function GetCategorie($id){
+        $query = $this->db->prepare("SELECT * FROM categoria WHERE id=?");
+        $query -> execute(array($id));
+        return $query->fetch(PDO::FETCH_OBJ);
+    }
+
+
 }
 
 ?>

@@ -48,8 +48,8 @@ class VinoController{
     }
 
     function DeleteWine($params = null){
-        $id = $params[':ID'];
-        $this->model->DeleteWine($id);
+        $id_wine = $params[':ID'];
+        $this->model->DeleteWine($id_wine);
         $this->view->ShowHomeLocation();
     }
 

@@ -45,12 +45,24 @@ class VinotecaView{
         $smarty->assign('categorias',$category);
 
         $smarty->display('templates/editWine.tpl');
-        
     }
+
+    function ShowAllCategorie($category,$wines){
+        $smarty = new Smarty();
+        $smarty->assign('titulo', $this->title);
+        $smarty->assign('categoria',$category);
+        $smarty->assign('wines', $wines);
+
+        $smarty->display('templates/categorie.tpl');
+    }
+
 
     function ShowHomeLocation(){
        header("Location: ".BASE_URL."Home");
     }
+    function ShowCategoriesLocation(){
+        header("Location: ".BASE_URL."categories");
+     }
 
     
 }
