@@ -1,10 +1,10 @@
 {include file="header.tpl"}
 
     <div>
-        <h1>Categorias de vinos:</h1>
+        <h2>Categorias de vinos:</h2>
         <ul class="list-group list-group-flush">
             {foreach from=$categorias item=categoria}
-            <li class="list-group-item">{$categoria->tipo} : Color característico,  {$categoria->color}</li>      
+            <li class="list-group-item">{$categoria->tipo} : Color característico,  {$categoria->color} <a href="editCategorie/:ID"><button type="button"  class="btn btn-primary btn-sm">Editar</button></a>  <a href="deleteCategorie/:ID"><button type="button" class="btn btn-sm btn-danger">Borrar</button></a></li>      
             {/foreach} 
         </ul>
     </div>

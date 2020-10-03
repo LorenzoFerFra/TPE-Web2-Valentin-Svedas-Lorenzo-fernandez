@@ -1,7 +1,4 @@
 {include file="header.tpl"}
-    <div class="container" >
-    <a href="categorias" class="text-secondary">Categorias de vinos</a>
-    </div>
     <div>
         <ul>
             {foreach from=$wines item=vino}
@@ -12,6 +9,5 @@
     
 
 {include file="insertWine.tpl" }
-
 
 {include file="footer.tpl"}
