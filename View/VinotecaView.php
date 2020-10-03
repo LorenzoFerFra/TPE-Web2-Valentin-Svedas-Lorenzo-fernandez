@@ -11,10 +11,11 @@ class VinotecaView{
         $this->title = "Vinoteca";
     }
 
-    function ShowHome($wines){
+    function ShowHome($wines,$category){
         $smarty = new Smarty();
         $smarty->assign('titulo', $this->title);
         $smarty->assign('wines', $wines);
+        $smarty->assign('categorias', $category);
       
         $smarty->display('templates/wines.tpl'); // muestro el template 
     }

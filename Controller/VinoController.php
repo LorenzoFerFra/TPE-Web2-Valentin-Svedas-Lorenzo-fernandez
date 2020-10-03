@@ -17,7 +17,9 @@ class VinoController{
 
     function Home(){
         $wines = $this->model->GetWines();
-        $this->view->ShowHome($wines);
+        $categories = $this->modelCategoria->GetCategories();
+
+        $this->view->ShowHome($wines,$categories);
     }
     
     function detailWine($params = null){
@@ -36,11 +38,20 @@ class VinoController{
     }
 
     function Edit(){
-
         $this->model->updateWine($_POST['input_nombre'],$_POST['input_descripcion'],$_POST['input_anocosecha'],$_POST['input_origen'],$_POST['input_alcohol'],$_POST['input_stock'],$_POST['input_idcategoria'],$_POST['input_id']);
         $this->view->ShowHomeLocation();
     }
 
+    function InsertWine(){
+        $this->model->insertWine($_POST['input_nombre'],$_POST['input_descripcion'],$_POST['input_anocosecha'],$_POST['input_origen'],$_POST['input_alcohol'],$_POST['input_stock'],$_POST['input_idcategoria']);
+        $this->view->ShowHomeLocation();
+    }
+
+    function DeleteWine($params = null){
+        $id = $params[':ID'];
+        $this->model->DeleteWine($id);
+        $this->view->ShowHomeLocation();
+    }
 
 
 

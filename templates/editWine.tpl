@@ -19,7 +19,7 @@
         <div class="input-group-prepend">
           <span class="input-group-text" id="inputGroup-sizing-default">Año de cosecha</span>
         </div>
-        <input type="text" name="input_anocosecha" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" value="{$wine->ano_cosecha}">
+        <input type="date" name="input_anocosecha" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" value="{$wine->ano_cosecha}">
       </div>
       <div class="input-group mb-3">
         <div class="input-group-prepend">
@@ -54,9 +54,9 @@
         <label class="input-group-text" name="input_idcategoria" for="inputGroupSelect01">Categoria</label>
       </div>
       <select class="custom-select" id="inputGroupSelect01" name="input_idcategoria">
-      <option selected value="{$wine->id_categoria}">Tipo</option>
+      <option selected value="{$wine->id_categoria}">Tipo {$wine->id_categoria}</option>
       {foreach from=$categorias item=categoria}
-        <option value="{$categoria->id}">{$categoria->tipo} - {$categoria->color}</option> 
+        <option value="{$categoria->id}">{$categoria->id} {$categoria->tipo} - {$categoria->color}</option> 
       {/foreach}
         </select>
     </div>

@@ -22,17 +22,16 @@ class VinoModel{
     }
 
     function insertWine($nombre,$descripcion,$ano_cosecha,$origen,$alcohol,$stock){
-        $query = $this->db->prepare("INSERT INTO task(nombre,descripcion,ano_cosecha,origen,alcohol,stock) VALUES(?,?,?,?)");
+        $query = $this->db->prepare("INSERT INTO vino(nombre,descripcion,ano_cosecha,origen,alcohol,stock) VALUES(?,?,?,?,?,?)");
         $query->execute(array($nombre,$descripcion,$ano_cosecha,$origen,$alcohol,$stock));
 
     }
 
-    function deleteWine($id_wine){
-        $query = $this->db->prepare("DELETE FROM wine WHERE id=?");
-        $query->execute(array($wine_id));
+    function DeleteWine($id){
+        $query = $this->db->prepare("DELETE FROM vino WHERE id=?");
+        $query->execute(array($id));
     }
 
-    
     function updateWine($nombre,$descripcion,$ano_cosecha,$origen,$alcohol,$stock,$categoria,$id){
         $query = $this->db->prepare("UPDATE vino SET nombre='$nombre',descripcion='$descripcion',ano_cosecha='$ano_cosecha',origen='$origen',alcohol='$alcohol',stock='$stock',id_categoria='$categoria' WHERE id=?");
         $query->execute(array($id));
