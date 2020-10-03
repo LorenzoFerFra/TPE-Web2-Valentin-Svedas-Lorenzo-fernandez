@@ -21,9 +21,9 @@ class VinoModel{
         return $query->fetch(PDO::FETCH_OBJ);   
     }
 
-    function insertWine($nombre,$descripcion,$ano_cosecha,$origen,$alcohol,$stock){
-        $query = $this->db->prepare("INSERT INTO vino(nombre,descripcion,ano_cosecha,origen,alcohol,stock) VALUES(?,?,?,?,?,?)");
-        $query->execute(array($nombre,$descripcion,$ano_cosecha,$origen,$alcohol,$stock));
+    function insertWine($nombre,$descripcion,$ano_cosecha,$origen,$alcohol,$stock,$id_categoria){
+        $query = $this->db->prepare("INSERT INTO vino(nombre,descripcion,ano_cosecha,origen,alcohol,stock,id_categoria) VALUES(?,?,?,?,?,?,?)");
+        $query->execute(array($nombre,$descripcion,$ano_cosecha,$origen,$alcohol,$stock,$id_categoria));
 
     }
 

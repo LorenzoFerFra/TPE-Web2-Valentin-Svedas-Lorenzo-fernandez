@@ -45,7 +45,7 @@
         <label class="input-group-text" name="input_idcategoria" for="inputGroupSelect01">Categoria</label>
       </div>
       <select class="custom-select" id="inputGroupSelect01" name="input_idcategoria">
-      <option selected value="1">Tipo </option>
+      <option selected value="0">Tipo </option>
       {foreach from=$categorias item=categoria}
         <option value="{$categoria->id}">{$categoria->id} {$categoria->tipo} - {$categoria->color}</option> 
       {/foreach}
