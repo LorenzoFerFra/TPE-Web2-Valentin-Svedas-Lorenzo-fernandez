@@ -21,6 +21,10 @@ class VinoController{
 
         $this->view->ShowHome($wines,$categories);
     }
+
+    function resetHome(){
+        $this->view->ShowHomeLocation();
+    }
     
     function detailWine($params = null){
         $id_wine = $params[':ID'];
