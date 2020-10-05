@@ -34,6 +34,10 @@ class CategoriaController{
         $this->view->ShowCategoriesLocation();
     }
 
+    function InsertCategorie(){
+        $this->model->insertCategrie($_POST['input_tipo'],$_POST['input_color']);
+        $this->view->ShowHomeLocation();
+    }
     
 
 

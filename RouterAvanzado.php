@@ -21,6 +21,7 @@
 
 
     $r->addRoute("insert", "POST", "VinoController", "InsertWine");
+    $r->addRoute("insertCategoria", "POST", "CategoriaController", "InsertCategoria");
 
     $r->addRoute("delete/:ID", "GET", "VinoController", "DeleteWine"); 
     

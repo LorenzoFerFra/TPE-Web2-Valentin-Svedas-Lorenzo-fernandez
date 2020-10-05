@@ -21,7 +21,10 @@ class CategoriaModel{
         $query -> execute(array($id));
         return $query->fetch(PDO::FETCH_OBJ);
     }
-
+    function insertCategorie(){
+        $query = $this->db->prepare("INSERT INTO categoria(tipo,color) VALUES(?,?)");
+        $query->execute(array($tipo,$color));
+    }
 
 }
 

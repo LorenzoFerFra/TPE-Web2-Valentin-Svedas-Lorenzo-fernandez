@@ -7,7 +7,8 @@
             <li class="list-group-item"><a href="categorie/{$categoria->id}" class="text-body">{$categoria->tipo}<a> : Color característico,  {$categoria->color} <a href="editCategorie/:ID"><button type="button"  class="btn btn-primary btn-sm">Editar</button></a>  <a href="deleteCategorie/:ID"><button type="button" class="btn btn-sm btn-danger">Borrar</button></a></li>      
             {/foreach} 
         </ul>
-    </div>
 
+    </div>
+{include file="insertCategorie.tpl" }
     
 {include file="footer.tpl"}
