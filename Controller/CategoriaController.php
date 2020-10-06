@@ -17,7 +17,25 @@ class CategoriaController{
         $this->view = new VinotecaView();
 
     }
+
+    private function checkLoggedIn(){
+        session_start();
+        
+        if(!isset($_SESSION["EMAIL"])){
+            header("Location: ". LOGIN);
+            die();
+        }else{
+            if ( isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 1000)) { 
+                header("Location: ". LOGOUT);
+                die();
+            } 
+        
+            $_SESSION['LAST_ACTIVITY'] = time();
+        }
+    }
+
     function Home(){
+        $this->checkLoggedIn();
         $categories = $this->model->GetCategories();
         $this->view->ShowCategories($categories);
     }

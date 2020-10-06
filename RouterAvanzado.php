@@ -36,7 +36,8 @@
     
     $r->addRoute("categorie/:ID", "GET", "CategoriaController", "Categorie");
 
-    $r->addRoute("verifyUser", "GET", "UserController", "VerifyUser");
+    $r->addRoute("verifyUser", "POST", "UserController", "VerifyUser");
+
     $r->addRoute("login", "GET", "UserController", "Login");
     $r->addRoute("logout", "GET", "UserController", "Logout");
     $r->addRoute("register", "GET", "UserController", "Register");
