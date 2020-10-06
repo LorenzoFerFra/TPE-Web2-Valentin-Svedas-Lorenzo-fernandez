@@ -1,10 +1,13 @@
 <?php
     require_once 'Controller/VinoController.php';
     require_once 'Controller/CategoriaController.php';
+    require_once "Controller/UserController.php";
     require_once 'RouterClass.php';
     
     // CONSTANTES PARA RUTEO
     define("BASE_URL", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/');
+    define("LOGIN", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/login');
+    define("LOGOUT", 'http://'.$_SERVER["SERVER_NAME"].':'.$_SERVER["SERVER_PORT"].dirname($_SERVER["PHP_SELF"]).'/logout');
 
     $r = new Router();
 
@@ -13,6 +16,9 @@
     $r->addRoute("edit/Home", "GET", "VinoController", "resetHome");
     $r->addRoute("edit/categories", "GET", "CategoriaController", "resetHome");
   
+    $r->addRoute("detalle/Home", "GET", "VinoController", "resetHome");
+    $r->addRoute("detalle/categories", "GET", "CategoriaController", "resetHome");
+
    // $r->addRoute("", "GET", "VinoController", "Home");
     $r->addRoute("detalle/:ID", "GET", "VinoController", "detailWine");
 
@@ -28,10 +34,13 @@
     $r->addRoute("categories", "GET", "CategoriaController", "Home");
     $r->addRoute("categorie/volver", "GET", "CategoriaController", "resetHome");
     
-
-   
-
     $r->addRoute("categorie/:ID", "GET", "CategoriaController", "Categorie");
+
+    $r->addRoute("verifyUser", "GET", "UserController", "VerifyUser");
+    $r->addRoute("login", "GET", "UserController", "Login");
+    $r->addRoute("logout", "GET", "UserController", "Logout");
+    $r->addRoute("register", "GET", "UserController", "Register");
+    $r->addRoute("registerUser", "POST", "UserController", "RegisterUser");
 
 
 
