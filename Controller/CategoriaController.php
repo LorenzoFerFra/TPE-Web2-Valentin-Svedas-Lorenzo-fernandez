@@ -25,7 +25,7 @@ class CategoriaController{
             header("Location: ". LOGIN);
             die();
         }else{
-            if ( isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 1000)) { 
+            if ( isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 600)) { 
                 header("Location: ". LOGOUT);
                 die();
             } 

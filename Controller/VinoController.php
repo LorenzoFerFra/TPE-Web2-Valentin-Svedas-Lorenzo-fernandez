@@ -22,7 +22,7 @@ class VinoController{
             header("Location: ". LOGIN);
             die();
         }else{
-            if ( isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 10)) { 
+            if ( isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 600)) { 
                 header("Location: ". LOGOUT);
                 die();
             } 
