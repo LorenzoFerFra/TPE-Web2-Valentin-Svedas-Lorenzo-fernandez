@@ -53,7 +53,6 @@ class CategoriaController{
     }
 
     function InsertCategorie(){
-<<<<<<< HEAD
         $this->model->insertCategorie($_POST['input_tipo'],$_POST['input_color']);
         $this->resetHome();
     }
@@ -62,10 +61,8 @@ class CategoriaController{
         $id_categorie = $params[':ID'];
         $this->model->DeleteCategorie($id_categorie);
         $this->view->ShowHomeLocation();
-=======
         $this->model->insertCategrie($_POST['input_tipo'],$_POST['input_color']);
         $this->view->ShowCategoriesLocation();
->>>>>>> f7b49650a86d1a81caeb79fd31931d02061a7e27
     }
     
 
