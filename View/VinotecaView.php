@@ -60,6 +60,7 @@ class VinotecaView{
     function ShowHomeLocation(){
        header("Location: ".BASE_URL."Home");
     }
+    
     function ShowCategoriesLocation(){
         header("Location: ".BASE_URL."categories");
      }

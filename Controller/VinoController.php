@@ -15,11 +15,33 @@ class VinoController{
         $this->modelCategoria = new CategoriaModel();
     }
 
+    private function checkLoggedIn(){
+        session_start();
+        
+        if(!isset($_SESSION["EMAIL"])){
+            header("Location: ". LOGIN);
+            die();
+        }else{
+            if ( isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 10)) { 
+                header("Location: ". LOGOUT);
+                die();
+            } 
+        
+            $_SESSION['LAST_ACTIVITY'] = time();
+        }
+    }
+
     function Home(){
+        $this->checkLoggedIn();
+        
         $wines = $this->model->GetWines();
         $categories = $this->modelCategoria->GetCategories();
 
         $this->view->ShowHome($wines,$categories);
+    }
+
+    function resetHome(){
+        $this->view->ShowHomeLocation();
     }
     
     function detailWine($params = null){

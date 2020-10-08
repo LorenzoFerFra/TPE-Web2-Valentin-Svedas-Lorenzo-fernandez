@@ -17,7 +17,25 @@ class CategoriaController{
         $this->view = new VinotecaView();
 
     }
+
+    private function checkLoggedIn(){
+        session_start();
+        
+        if(!isset($_SESSION["EMAIL"])){
+            header("Location: ". LOGIN);
+            die();
+        }else{
+            if ( isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 1000)) { 
+                header("Location: ". LOGOUT);
+                die();
+            } 
+        
+            $_SESSION['LAST_ACTIVITY'] = time();
+        }
+    }
+
     function Home(){
+        $this->checkLoggedIn();
         $categories = $this->model->GetCategories();
         $this->view->ShowCategories($categories);
     }
@@ -35,8 +53,19 @@ class CategoriaController{
     }
 
     function InsertCategorie(){
-        $this->model->insertCategrie($_POST['input_tipo'],$_POST['input_color']);
+<<<<<<< HEAD
+        $this->model->insertCategorie($_POST['input_tipo'],$_POST['input_color']);
+        $this->resetHome();
+    }
+
+    function DeleteCategorie($params = null){
+        $id_categorie = $params[':ID'];
+        $this->model->DeleteCategorie($id_categorie);
         $this->view->ShowHomeLocation();
+=======
+        $this->model->insertCategrie($_POST['input_tipo'],$_POST['input_color']);
+        $this->view->ShowCategoriesLocation();
+>>>>>>> f7b49650a86d1a81caeb79fd31931d02061a7e27
     }
     
 
