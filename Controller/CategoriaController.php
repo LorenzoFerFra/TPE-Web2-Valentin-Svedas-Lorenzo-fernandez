@@ -11,11 +11,12 @@ class CategoriaController{
     private $model;
     private $modelWine;
     private $view;
+    private $authHelper;
 
     function __construct(){
 
-        $authHelper = new AuthHelper();
-        $authHelper->checkLoggedIn();
+        $this->authHelper = new AuthHelper();
+        $this->authHelper->checkLoggedIn();
 
         $this->model = new CategoriaModel();
         $this->modelWine = new VinoModel();
@@ -39,27 +40,41 @@ class CategoriaController{
 
     }
     function resetHome(){
-        $this->view->ShowHomeLocation();
+        $this->view->ShowCategoriesLocation();
     }
 
     function InsertCategorie(){
-        $this->model->insertCategorie($_POST['input_tipo'],$_POST['input_color']);
-        $this->view-> ShowCategoriesLocation();
+        if($this->authHelper->checkAdmin()){
+            $this->model->insertCategorie($_POST['input_tipo'],$_POST['input_color']);
+            $this->resetHome();
+        }else{
+            $this->resetHome();
+        }
     }
 
     function DeleteCategorie($params = null){
-        $id_categorie = $params[':ID'];
-        $this->model->DeleteCategorie($id_categorie);
-        $this->view->ShowCategoriesLocation();
+        if($this->authHelper->checkAdmin()){
+            $id_categorie = $params[':ID'];
+            $this->model->DeleteCategorie($id_categorie);
+            $this->resetHome();
+        }else{
+            $this->resetHome();
+        }
+        
     }
     function EditCategorie($params = null){
-        $id_categorie = $params[':ID'];
-        $categorie = $this->model->GetCategorie($id_categorie);
-        $this->view->ShowEditCategorie($categorie);
+        if($this->authHelper->checkAdmin()){
+            $id_categorie = $params[':ID'];
+            $categorie = $this->model->GetCategorie($id_categorie);
+            $this->view->ShowEditCategorie($categorie);
+        }else{
+            $this->resetHome();
+        }
+        
     }
     function Edit(){
         $this->model->updateCategorie($_POST['input_tipo'],$_POST['input_color'],$_POST['input_id']);
-        $this->view-> ShowCategoriesLocation();
+        $this->resetHome();
     }
     
 

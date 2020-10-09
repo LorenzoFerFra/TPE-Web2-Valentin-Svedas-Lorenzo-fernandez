@@ -42,7 +42,7 @@ class VinoController{
 
     function EditWine($params = null){
         if($this->authHelper->checkAdmin()) {
-            $id_wine = $params[':ID'];
+        $id_wine = $params[':ID'];
         $wine = $this->model->GetWine($id_wine);
         $categories = $this->modelCategoria->GetCategories();
 

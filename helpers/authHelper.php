@@ -28,7 +28,6 @@ class AuthHelper{
                 header("Location: ". LOGOUT);
                 die();
             } 
-        
             $_SESSION['LAST_ACTIVITY'] = time();
         }    
     }

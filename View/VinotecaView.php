@@ -60,6 +60,7 @@ class VinotecaView{
         $smarty = new Smarty();
         $smarty->assign('categorie', $categorie);
         $smarty->assign('titulo', $this->title);
+        $smarty->assign('userEmail', $this->userEmail);
 
         $smarty->display('templates/editCategorie.tpl');
     }
