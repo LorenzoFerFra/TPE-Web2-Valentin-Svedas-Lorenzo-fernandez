@@ -30,7 +30,7 @@ class CategoriaModel{
         $query->execute(array($id));
     }
     function updateCategorie($tipo,$color,$id){
-        $query = $this->db->prepare("UPDATE categoria SET tipo='$tipo',color='$color',id_categoria='$categoria' WHERE id=?");
+        $query = $this->db->prepare("UPDATE categoria SET tipo='$tipo',color='$color' WHERE id=?");
         $query->execute(array($id));
     }
 }

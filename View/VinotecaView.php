@@ -47,6 +47,14 @@ class VinotecaView{
         $smarty->display('templates/editWine.tpl');
     }
 
+    function ShowEditCategorie($categorie){
+        $smarty = new Smarty();
+        $smarty->assign('categorie', $categorie);
+        $smarty->assign('titulo', $this->title);
+
+        $smarty->display('templates/editCategorie.tpl');
+    }
+
     function ShowAllCategorie($category,$wines){
         $smarty = new Smarty();
         $smarty->assign('titulo', $this->title);

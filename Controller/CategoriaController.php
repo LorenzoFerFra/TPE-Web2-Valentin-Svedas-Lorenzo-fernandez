@@ -49,22 +49,31 @@ class CategoriaController{
 
     }
     function resetHome(){
-        $this->view->ShowCategoriesLocation();
+        $this->view->ShowHomeLocation();
     }
 
     function InsertCategorie(){
         $this->model->insertCategorie($_POST['input_tipo'],$_POST['input_color']);
-        $this->resetHome();
+        $this->view-> ShowCategoriesLocation();
     }
 
     function DeleteCategorie($params = null){
         $id_categorie = $params[':ID'];
         $this->model->DeleteCategorie($id_categorie);
-        $this->view->ShowHomeLocation();
-        $this->model->insertCategrie($_POST['input_tipo'],$_POST['input_color']);
         $this->view->ShowCategoriesLocation();
     }
+    function EditCategorie($params = null){
+        $id_categorie = $params[':ID'];
+        $categorie = $this->model->GetCategorie($id_categorie);
+        $this->view->ShowEditCategorie($categorie);
+    }
+    function Edit(){
+        $this->model->updateCategorie($_POST['input_tipo'],$_POST['input_color'],$_POST['input_id']);
+        $this->view-> ShowCategoriesLocation();
+    }
     
+
+
 
 
 
