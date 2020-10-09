@@ -3,6 +3,7 @@
 require_once "./Model/CategoriaModel.php";
 require_once "./Model/VinoModel.php";
 require_once "./View/VinotecaView.php";
+require_once "./helpers/authHelper.php";
 
 
 class CategoriaController{
@@ -12,30 +13,19 @@ class CategoriaController{
     private $view;
 
     function __construct(){
+
+        $authHelper = new AuthHelper();
+        $authHelper->checkLoggedIn();
+
         $this->model = new CategoriaModel();
         $this->modelWine = new VinoModel();
         $this->view = new VinotecaView();
 
     }
 
-    private function checkLoggedIn(){
-        session_start();
-        
-        if(!isset($_SESSION["EMAIL"])){
-            header("Location: ". LOGIN);
-            die();
-        }else{
-            if ( isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 600)) { 
-                header("Location: ". LOGOUT);
-                die();
-            } 
-        
-            $_SESSION['LAST_ACTIVITY'] = time();
-        }
-    }
 
     function Home(){
-        $this->checkLoggedIn();
+      
         $categories = $this->model->GetCategories();
         $this->view->ShowCategories($categories);
     }

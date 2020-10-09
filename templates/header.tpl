@@ -19,8 +19,12 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                     <li class="nav-item active">
-                        <a class="nav-link" href="categories">Categorias de vinos<span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="categories">Categorias de vinos<span class="sr-only">(current)</span></a>     
                     </li>
+                    
                     </ul>
+                    
                 </div>
+                <div class="text-right text-white">{$userEmail} <a href="logout" class="text-danger">Logout</a></div>
+                 
             </nav>

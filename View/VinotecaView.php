@@ -1,13 +1,18 @@
 <?php
 
 require_once "./libs/smarty/Smarty.class.php";
+require_once "./helpers/authHelper.php";
 
 class VinotecaView{
 
     private $title;
+    private $userEmail;
     
 
     function __construct(){
+
+        $authHelper = new AuthHelper();
+        $this->userEmail = $authHelper->getLoggedUserEmail();
         $this->title = "Vinoteca";
     }
 
@@ -16,6 +21,7 @@ class VinotecaView{
         $smarty->assign('titulo', $this->title);
         $smarty->assign('wines', $wines);
         $smarty->assign('categorias', $category);
+        $smarty->assign('userEmail', $this->userEmail);
       
         $smarty->display('templates/wines.tpl'); // muestro el template 
     }
@@ -24,6 +30,7 @@ class VinotecaView{
         $smarty = new Smarty();
         $smarty->assign('wine', $wine);
         $smarty->assign('titulo', $this->title);
+        $smarty->assign('userEmail', $this->userEmail);
       
         $smarty->display('templates/detalle.tpl');  
 
@@ -33,6 +40,7 @@ class VinotecaView{
         $smarty = new Smarty();
         $smarty->assign('categorias', $category);
         $smarty->assign('titulo', $this->title);
+        $smarty->assign('userEmail', $this->userEmail);
         
         $smarty->display('templates/categories.tpl');  
 
@@ -43,6 +51,7 @@ class VinotecaView{
         $smarty->assign('wine', $wine);
         $smarty->assign('titulo', $this->title);
         $smarty->assign('categorias',$category);
+        $smarty->assign('userEmail', $this->userEmail);
 
         $smarty->display('templates/editWine.tpl');
     }
@@ -60,6 +69,7 @@ class VinotecaView{
         $smarty->assign('titulo', $this->title);
         $smarty->assign('categoria',$category);
         $smarty->assign('wines', $wines);
+        $smarty->assign('userEmail', $this->userEmail);
 
         $smarty->display('templates/categorie.tpl');
     }
