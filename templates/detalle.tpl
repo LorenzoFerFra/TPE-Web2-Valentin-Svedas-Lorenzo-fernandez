@@ -1,34 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{$titulo}</title>
-</head>
-<body>
+{include file="header.tpl"}
     <div>
-        <table>
+        <table class="table">
             <thead>
-                <th>{$wine->nombre}</th>
+                <tr>
+                    <th scope="col">{$wine->nombre}</th>
+                    <th scope="col">Año cosecha</th>
+                    <th scope="col">Origen</th>
+                    <th scope="col">Graduacion alcoholica</th>
+                    <th scope="col">Stock</th>
+                </tr>
             </thead>
             <tbody>
                 <tr>
                     <td>
-                        <p>Detalle: {$wine->descripcion}</p>
+                        {$wine->descripcion}
                     </td>
                     <td>
-                        <p>Año cosecha: {$wine->ano_cosecha}</p>
+                        {$wine->ano_cosecha}
                     </td>
                     <td>
-                        <p>Origen: {$wine->origen}</p>  
+                        {$wine->origen}  
                     </td>
-                    
                     <td>
-                        <p>Graduacion Alcoholica: {$wine->alcohol}%</p>
+                        {$wine->alcohol}%
+                    </td>
+                    <td>
+                        {if $wine->stock eq 1}
+                            <p class="text-success">Con stock disponlibe</p>
+                        {else}
+                            <p class="text-danger">Sin stock</p>
+                        {/if}
                     </td>
                 </tr>
             </tbody>
         </table>
     </div>
-</body>
-</html>
+{include file="footer.tpl"}

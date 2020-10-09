@@ -2,20 +2,35 @@
 
 require_once "./Model/VinoModel.php";
 require_once "./View/VinotecaView.php";
+require_once "./Model/CategoriaModel.php";
+require_once "./helpers/authHelper.php";
 
 class VinoController{
 
     private $view;
     private $model;
+    private $authHelper;
 
     function __construct(){
+
+        $this->authHelper = new AuthHelper();
+        $this->authHelper->checkLoggedIn();
+        
         $this->view = new VinotecaView();
         $this->model = new VinoModel();
+        $this->modelCategoria = new CategoriaModel();
     }
+
 
     function Home(){
         $wines = $this->model->GetWines();
-        $this->view->ShowHome($wines);
+        $categories = $this->modelCategoria->GetCategories();
+
+        $this->view->ShowHome($wines,$categories);
+    }
+
+    function resetHome(){
+        $this->view->ShowHomeLocation();
     }
     
     function detailWine($params = null){
@@ -25,6 +40,43 @@ class VinoController{
          $this->view->ShowDetailWine($wine);
     }
 
+    function EditWine($params = null){
+        if($this->authHelper->checkAdmin()) {
+        $id_wine = $params[':ID'];
+        $wine = $this->model->GetWine($id_wine);
+        $categories = $this->modelCategoria->GetCategories();
+
+         $this->view->ShowEditWine($wine,$categories);
+        }else{
+            $this->view->ShowHomeLocation();
+        }
+    }
+
+    function Edit(){
+        $this->model->updateWine($_POST['input_nombre'],$_POST['input_descripcion'],$_POST['input_anocosecha'],$_POST['input_origen'],$_POST['input_alcohol'],$_POST['input_stock'],$_POST['input_idcategoria'],$_POST['input_id']);
+        $this->view->ShowHomeLocation();
+    }
+
+    function InsertWine(){
+        if($this->authHelper->checkAdmin()){
+            $this->model->insertWine($_POST['input_nombre'],$_POST['input_descripcion'],$_POST['input_anocosecha'],$_POST['input_origen'],$_POST['input_alcohol'],$_POST['input_stock'],$_POST['input_idcategoria']);
+            $this->view->ShowHomeLocation();
+        }else{
+            $this->view->ShowHomeLocation();
+        }
+        
+    }
+
+    function DeleteWine($params = null){
+        if($this->authHelper->checkAdmin()){
+            $id_wine = $params[':ID'];
+            $this->model->DeleteWine($id_wine);
+            $this->view->ShowHomeLocation();
+        }else{
+            $this->view->ShowHomeLocation();
+        }
+        
+    }
 
 
 
