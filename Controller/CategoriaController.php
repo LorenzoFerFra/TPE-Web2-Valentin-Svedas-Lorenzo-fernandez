@@ -16,7 +16,6 @@ class CategoriaController{
     function __construct(){
 
         $this->authHelper = new AuthHelper();
-        $this->authHelper->checkLoggedIn();
 
         $this->model = new CategoriaModel();
         $this->modelWine = new VinoModel();
@@ -73,6 +72,7 @@ class CategoriaController{
         
     }
     function Edit(){
+        $this->authHelper->checkLoggedIn();
         $this->model->updateCategorie($_POST['input_tipo'],$_POST['input_color'],$_POST['input_id']);
         $this->resetHome();
     }

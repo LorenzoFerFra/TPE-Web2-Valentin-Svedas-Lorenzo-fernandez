@@ -43,7 +43,10 @@ class AuthHelper{
     public function getLoggedUserEmail() {
         if (session_status() != PHP_SESSION_ACTIVE)
             session_start();
-        return $_SESSION['EMAIL'];
+            if(!empty($_SESSION['EMAIL']))
+            return $_SESSION['EMAIL'];
+            else
+            return NULL;
     }
 }
 

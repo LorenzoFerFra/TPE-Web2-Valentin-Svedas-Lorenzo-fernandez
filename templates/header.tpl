@@ -25,6 +25,10 @@
                     </ul>
                     
                 </div>
-                <div class="text-right text-white">{$userEmail} <a href="logout" class="text-danger">Logout</a></div>
+                <div class="text-right text-white">{$userEmail} {if $userEmail neq NULL}
+                    <a href="logout" class="text-danger">Logout</a>
+                    {else}
+                    <a href="login" class="text-sucessful">Login</a>
+                {/if}</div>
                  
             </nav>
