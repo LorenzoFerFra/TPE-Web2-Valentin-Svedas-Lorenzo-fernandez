@@ -1,17 +1,20 @@
 <?php
 
 require_once "./View/UserView.php";
+require_once "./View/VinotecaView.php";
 require_once "./Model/UserModel.php";
 require_once "./helpers/authHelper.php";
 
 class UserController{
 
+    private $VinotecaView;
     private $view;
     private $model;
     private $authHelper;
 
     function __construct(){
         $this->view = new UserView();
+        $this->viewVino = new VinotecaView();
         $this->model = new UserModel();
         $this->authHelper = new AuthHelper();
 
@@ -60,7 +63,10 @@ class UserController{
             $hash = password_hash($pass, PASSWORD_DEFAULT);
 
             $this->model->registerUser($user,$hash);
-            $this->view->ShowLogin();
+            $userFromDB = $this->model->GetUser($user);
+            $this->authHelper->login($userFromDB);
+            $this->viewVino->ShowHomeLocation();
+
         }else
             $this->view->ShowRegister("Faltan datos");
     }
