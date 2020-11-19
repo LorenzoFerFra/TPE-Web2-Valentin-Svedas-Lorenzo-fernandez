@@ -1,9 +1,9 @@
 {include file="header.tpl"}
-    <div>
+    <div class="container">
         <table class="table">
             <thead>
                 <tr>
-                    <th scope="col">{$wine->nombre}</th>
+                    <th scope="col" id="id_vino" id_vino="{$wine->id}">{$wine->nombre}</th>
                     <th scope="col">Año cosecha</th>
                     <th scope="col">Origen</th>
                     <th scope="col">Graduacion alcoholica</th>
@@ -34,5 +34,13 @@
                 </tr>
             </tbody>
         </table>
+         
+            {include file="vue/comment.vue"}
+         <div >
+            <div class="col-md-8"> 
+            {include file="insertComment.tpl"}
+         </div>
+
     </div>
+    <script src="../js/comments.js"></script>
 {include file="footer.tpl"}

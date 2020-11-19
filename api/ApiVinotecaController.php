@@ -16,6 +16,12 @@ class ApiVinotecaController extends ApiController{
         $this->view->response($comments, 200);
     }
 
+    function getCommentsVino($params = null){
+        $id = $params[':ID'];
+        $comments= $this->model->getCommentsVino($id);
+        $this->view->response($comments, 200);
+    }
+
     function getComment($params = null) {
         $id = $params[':ID'];
         $comment = $this->model->getComment($id);
@@ -39,7 +45,7 @@ class ApiVinotecaController extends ApiController{
     
     public function insertComment(){
         $body = $this->getData();
-        $comment = $this->model->insertComment($body->id_usuario,$body->comentario,$body->puntaje,$body->id_vino);
+        $comment = $this->model->insertComment($body->usuario,$body->comentario,$body->puntaje,$body->id_vino);
         
         if(!empty($comment))
             $this->view->response($this->model->getComment($comment),201);
