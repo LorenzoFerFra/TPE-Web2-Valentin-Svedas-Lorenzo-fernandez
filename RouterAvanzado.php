@@ -24,7 +24,7 @@
     $r->addRoute("detalle/Home", "GET", "VinoController", "resetHome");
     $r->addRoute("detalle/categories", "GET", "CategoriaController", "resetHome");
     $r->addRoute("detalle/logout", "GET", "UserController", "Logout");
-    $r->addRoute("detalle/login", "GET", "UserController", "Login");
+    $r->addRoute("detalle/login", "GET", "UserController", "resetLogin");
     $r->addRoute("detalle/register", "GET", "UserController", "Register");
 
 

@@ -22,7 +22,10 @@ class UserController{
 
     function Login(){
         $this->view->ShowLogin();
-
+    }
+    
+    function resetLogin(){
+        $this->view->ShowLoginLocation();
     }
 
     function Logout(){

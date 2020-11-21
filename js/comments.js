@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
     getComments(wine);
     document.querySelector('#form-comment').addEventListener('submit', e => {
         e.preventDefault();
-        if (user!= null) {
+        if (user!="") {
             insertComment(wine,user);
         }
     });

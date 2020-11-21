@@ -39,6 +39,13 @@ class AuthHelper{
             return true;
         }
     }
+    public function checkUser(){
+        if(!isset($_SESSION['ID_USER'])){
+            return true;
+        }else{
+            return false;
+        }
+    }
 
     public function getLoggedUserEmail() {
         if (session_status() != PHP_SESSION_ACTIVE)

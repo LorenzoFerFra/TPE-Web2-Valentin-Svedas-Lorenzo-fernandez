@@ -32,6 +32,10 @@ class UserView{
         
     }
 
+    function ShowLoginLocation(){
+        header("Location: ".LOGIN);
+     }
+
 }
 
 

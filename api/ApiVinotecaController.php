@@ -2,13 +2,17 @@
 
 require_once "./Model/ComentarioModel.php";
 require_once "ApiController.php";
+require_once "./helpers/authHelper.php";
 
 class ApiVinotecaController extends ApiController{
+
+    private $authHelper;
 
     function __construct(){
         parent::__construct();
         $this->model = new ComentarioModel();
         $this->view = new ApiView();
+        $this->authHelper = new AuthHelper();
     }
 
     function getComments(){
@@ -44,13 +48,15 @@ class ApiVinotecaController extends ApiController{
     }
     
     public function insertComment(){
-        $body = $this->getData();
-        $comment = $this->model->insertComment($body->usuario,$body->comentario,$body->puntaje,$body->id_vino);
-        
-        if(!empty($comment))
-            $this->view->response($this->model->getComment($comment),201);
-        else
-            $this->view->response("Error",404);
+        if($this->authHelper->checkUser()){
+            $body = $this->getData();
+            $comment = $this->model->insertComment($body->usuario,$body->comentario,$body->puntaje,$body->id_vino);
+            
+            if(!empty($comment))
+                $this->view->response($this->model->getComment($comment),201);
+            else
+                $this->view->response("Error",404);
+        }
     }
 
 
