@@ -38,13 +38,16 @@ class ApiVinotecaController extends ApiController{
 
 
     function deleteComment($params = null){
-        $id = $params[':ID'];
-        $comment = $this->model->deleteComment($id);
-        
-        if(!empty($comment))
-            $this->view->response("El comentario con el id: $id fue eliminado",200);
-        else    
-            $this->view->response("Error",404);
+        if($this->authHelper->checkAdmin()){
+
+            $id = $params[':ID'];
+            $comment = $this->model->deleteComment($id);
+            
+            if(!empty($comment))
+                $this->view->response("El comentario con el id: $id fue eliminado",200);
+            else    
+                $this->view->response("Error",404);
+        }
     }
     
     public function insertComment(){

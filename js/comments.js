@@ -18,7 +18,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-   
 });
 
 function getComments(wine) {
@@ -46,6 +45,15 @@ function insertComment(wine,user){
     .then(comment=>app.comments.push(comment))
     .catch(error=>console.log(error))
 
+}
+
+function deleteComment(comment){
+    fetch('http://localhost/TPEweb2/api/comments/'+ comment,{
+    method:'DELETE',
+    })
+    .then(response=>response.json())
+    .then(comment=>app.comments.pop(comment))
+    .catch(error=>console.log(error));
 }
 
 

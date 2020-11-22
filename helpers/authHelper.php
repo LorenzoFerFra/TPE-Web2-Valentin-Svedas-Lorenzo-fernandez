@@ -24,7 +24,7 @@ class AuthHelper{
             header('Location: ' . LOGIN);
             die();
         } else{
-            if ( isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 600)) { 
+            if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 600)) { 
                 header("Location: ". LOGOUT);
                 die();
             } 
@@ -33,6 +33,7 @@ class AuthHelper{
     }
 
     public function checkAdmin(){
+        session_start();
         if($_SESSION['ADMIN'] == 0 || $_SESSION['ADMIN'] == null){
             return false;
         }else{
