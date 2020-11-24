@@ -55,8 +55,6 @@
     $r->addRoute("register", "GET", "UserController", "Register");
     $r->addRoute("registerUser", "POST", "UserController", "RegisterUser");
 
-
-
     //Ruta por defecto.
     $r->setDefaultRoute("VinoController", "Home");
 

@@ -33,6 +33,13 @@ class AuthHelper{
     }
 
     public function checkAdmin(){
+        if($_SESSION['ADMIN'] == 0 || $_SESSION['ADMIN'] == null){
+            return false;
+        }else{
+            return true;
+        }
+    }
+    public function checkAdminComments(){
         session_start();
         if($_SESSION['ADMIN'] == 0 || $_SESSION['ADMIN'] == null){
             return false;
@@ -40,6 +47,8 @@ class AuthHelper{
             return true;
         }
     }
+
+
     public function checkUser(){
         if(!isset($_SESSION['ID_USER'])){
             return true;

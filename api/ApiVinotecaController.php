@@ -10,9 +10,10 @@ class ApiVinotecaController extends ApiController{
 
     function __construct(){
         parent::__construct();
+
+        $this->authHelper = new AuthHelper();
         $this->model = new ComentarioModel();
         $this->view = new ApiView();
-        $this->authHelper = new AuthHelper();
     }
 
     function getComments(){
@@ -38,7 +39,7 @@ class ApiVinotecaController extends ApiController{
 
 
     function deleteComment($params = null){
-        if($this->authHelper->checkAdmin()){
+        if($this->authHelper->checkAdminComments()){
 
             $id = $params[':ID'];
             $comment = $this->model->deleteComment($id);

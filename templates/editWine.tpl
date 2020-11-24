@@ -1,7 +1,7 @@
 {include file="header.tpl"}
 
 <div class="container">
-<form action="editwine" method="post">
+<form action="editwine" method="post" enctype="multipart/form-data">
   <h2>Editar Vino</h2>
     <div class="input-group mb-3">
         <div class="input-group-prepend">
@@ -59,6 +59,18 @@
         <option value="{$categoria->id}">{$categoria->id} {$categoria->tipo} - {$categoria->color}</option> 
       {/foreach}
         </select>
+    </div>
+    <div class="form-group">
+      <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroup-sizing-default">Imagen actual: 
+          {if isset($wine->imagen)}
+            {$wine->imagen}
+            {else}
+              ninguna
+          {/if}
+          </span>
+        </div>
+        <input type="file" name="input_image" id="imageToUpload">
     </div>
 
       <button type="sumbit" name="input_id" class="btn btn-secondary" value="{$wine->id}">Editar vino</button>

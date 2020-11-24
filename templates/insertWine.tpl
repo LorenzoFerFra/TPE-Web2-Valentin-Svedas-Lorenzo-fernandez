@@ -1,5 +1,6 @@
 <div class="container">
-<form action="insert" method="post">
+
+<form action="insert" method="post" enctype="multipart/form-data">
   <h2>Añadir nuevo Vino</h2>
     <div class="input-group mb-3">
         <div class="input-group-prepend">
@@ -51,6 +52,9 @@
       {/foreach}
         </select>
     </div>
+      <div class="form-group">
+        <input type="file" name="input_image" id="imageToUpload">
+      </div>
 
       <button type="sumbit" class="btn btn-secondary">Añadir vino</button>
 </form>

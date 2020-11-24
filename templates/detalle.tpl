@@ -8,6 +8,9 @@
                     <th scope="col">Origen</th>
                     <th scope="col">Graduacion alcoholica</th>
                     <th scope="col">Stock</th>
+                    {if $wine->imagen neq null}
+                    <th scope="col">Imagen</th>    
+                    {/if}
                 </tr>
             </thead>
             <tbody>
@@ -31,13 +34,18 @@
                             <p class="text-danger">Sin stock</p>
                         {/if}
                     </td>
+                    <td>
+                        {if isset($wine->imagen)}
+                            <img src="../{$wine->imagen}" class="img-fluid" class="rounded" width="20%" height="100px" alt="Responsive image"/>
+                        {/if}
+                    </td>
                 </tr>
             </tbody>
         </table>
          
             {include file="vue/comment.vue"}
          <div >
-            <div class="col-md-8"> 
+            <div class="col"> 
             {include file="insertComment.tpl"}
          </div>
 
