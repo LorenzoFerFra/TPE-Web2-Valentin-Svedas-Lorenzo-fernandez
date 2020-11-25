@@ -38,6 +38,14 @@ class VinoController{
 
          $this->view->ShowDetailWine($wine);
     }
+
+    function detailWines(){
+        $this->authHelper->checkLoggedIn();
+        $wines= $this->model->GetWines();
+
+         $this->view->ShowDetailWines($wines);
+    }
+
     function uploadImage(){
         $this->view->showUploadImage();
     }

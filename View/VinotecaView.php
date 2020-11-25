@@ -36,6 +36,16 @@ class VinotecaView{
 
     }
 
+    function ShowDetailWines($wines){
+        $smarty = new Smarty();
+        $smarty->assign('wines', $wines);
+        $smarty->assign('titulo', $this->title);
+        $smarty->assign('userEmail', $this->userEmail);
+      
+        $smarty->display('templates/paginacion.tpl');  
+
+    }
+
     function ShowCategories($category){
         $smarty = new Smarty();
         $smarty->assign('categorias', $category);

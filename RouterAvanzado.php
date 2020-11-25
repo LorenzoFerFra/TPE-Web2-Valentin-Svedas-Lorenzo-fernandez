@@ -18,7 +18,7 @@
     $r->addRoute("edit/categories", "GET", "CategoriaController", "resetHome");
     $r->addRoute("editCategorie/categories", "GET", "CategoriaController", "resetHome");
 
-    
+
     $r->addRoute("edit/Home", "GET", "CategoriaController", "resetHome");
   
     $r->addRoute("detalle/Home", "GET", "VinoController", "resetHome");
@@ -28,8 +28,9 @@
     $r->addRoute("detalle/register", "GET", "UserController", "Register");
 
 
-   // $r->addRoute("", "GET", "VinoController", "Home");
     $r->addRoute("detalle/:ID", "GET", "VinoController", "detailWine");
+    $r->addRoute("paginacion", "GET", "VinoController", "detailWines");
+
 
     $r->addRoute("edit/:ID", "GET", "VinoController", "EditWine"); 
     $r->addRoute("edit/editwine", "POST", "VinoController", "Edit");

@@ -21,7 +21,9 @@
                     <li class="nav-item active">
                         <a class="nav-link" href="categories">Categorias de vinos<span class="sr-only">(current)</span></a>     
                     </li>
-                    
+                    <li class="nav-item active">
+                        <a class="nav-link" href="paginacion">Vinos detallados<span class="sr-only">(current)</span></a>     
+                    </li>
                     </ul>
                     
                 </div>
