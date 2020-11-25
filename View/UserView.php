@@ -1,6 +1,7 @@
 <?php
 
 require_once "./libs/smarty/Smarty.class.php";
+require_once "./helpers/authHelper.php";
 
 
 
@@ -30,6 +31,14 @@ class UserView{
 
         $smarty->display('templates/register.tpl');
         
+    }
+    function ShowUsersEdit($users){
+        $smarty = new Smarty();
+        $smarty->assign('users', $users);
+        $smarty->assign('titulo', $this->title);
+        $smarty->assign('userEmail', "");
+
+        $smarty->display('templates/adminUsers.tpl');
     }
 
 }

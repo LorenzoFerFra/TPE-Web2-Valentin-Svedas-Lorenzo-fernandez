@@ -70,6 +70,10 @@ class UserController{
         }else
             $this->view->ShowRegister("Faltan datos");
     }
+    function UsersEdit(){
+        $users = $this->model->GetUsers();
+        $this->view->ShowUsersEdit($users);
+    }
 
 }
 

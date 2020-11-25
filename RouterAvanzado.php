@@ -25,15 +25,15 @@
     $r->addRoute("detalle/categories", "GET", "CategoriaController", "resetHome");
     $r->addRoute("detalle/logout", "GET", "UserController", "Logout");
 
-   // $r->addRoute("", "GET", "VinoController", "Home");
+    // $r->addRoute("", "GET", "VinoController", "Home");
     $r->addRoute("detalle/:ID", "GET", "VinoController", "detailWine");
-
+    
     $r->addRoute("edit/:ID", "GET", "VinoController", "EditWine"); 
     $r->addRoute("edit/editwine", "POST", "VinoController", "Edit");
     $r->addRoute("editCategorie/:ID", "GET", "CategoriaController", "EditCategorie"); 
     $r->addRoute("editCategorie/edit", "POST", "CategoriaController", "Edit");
-
-
+    
+    
     $r->addRoute("insert", "POST", "VinoController", "InsertWine");
     $r->addRoute("insertCategorie", "POST", "CategoriaController", "InsertCategorie");
 
@@ -46,14 +46,16 @@
     $r->addRoute("categorie/:ID", "GET", "CategoriaController", "Categorie");
 
     $r->addRoute("verifyUser", "POST", "UserController", "VerifyUser");
+    
+    $r->addRoute("usersEdit", "GET", "UserController", "UsersEdit");
 
     $r->addRoute("login", "GET", "UserController", "Login");
     $r->addRoute("logout", "GET", "UserController", "Logout");
     $r->addRoute("register", "GET", "UserController", "Register");
     $r->addRoute("registerUser", "POST", "UserController", "RegisterUser");
-
-
-
+    
+    
+    
     //Ruta por defecto.
     $r->setDefaultRoute("VinoController", "Home");
 
