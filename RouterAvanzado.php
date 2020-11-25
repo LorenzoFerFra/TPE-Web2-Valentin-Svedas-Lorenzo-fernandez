@@ -48,6 +48,8 @@
     $r->addRoute("verifyUser", "POST", "UserController", "VerifyUser");
     
     $r->addRoute("usersEdit", "GET", "UserController", "UsersEdit");
+    $r->addRoute("deleteUser/:ID", "GET", "UserController", "deleteUser");
+    $r->addRoute("editUser", "POST", "UserController", "editUser");
 
     $r->addRoute("login", "GET", "UserController", "Login");
     $r->addRoute("logout", "GET", "UserController", "Logout");

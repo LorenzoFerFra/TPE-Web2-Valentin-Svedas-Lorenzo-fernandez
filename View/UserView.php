@@ -41,6 +41,10 @@ class UserView{
         $smarty->display('templates/adminUsers.tpl');
     }
 
+    function ShowUsersLocation(){
+        header("Location: ".BASE_URL."usersEdit");
+     }
+
 }
 
 
