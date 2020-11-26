@@ -79,12 +79,7 @@ class UserController{
     }
 }
     function editUser(){
-        $admin=$_POST['input_admin'];
-        if ($admin==0) {
-            $this->model->updateUser(1 ,$_POST['input_id']);
-        }else{
-            $this->model->updateUser(0 ,$_POST['input_id']);
-        }
+        $this->model->updateUser($_POST['input_admin'],$_POST['input_id']);
         $this->view->ShowUsersLocation();
     }
 

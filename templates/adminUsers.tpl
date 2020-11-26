@@ -8,12 +8,12 @@
         {if $user->admin eq 0} 
            <button type="sumbit" name="input_id" value="{$user->id}" class="btn btn-outline-danger">Hacer administrador</button>  
             <div>
-            <input type="checkbox" name="input_admin" value=1>
+            <input type="hidden" name="input_admin" value=1>
             </div>
         {else} 
             <button type="sumbit" name="input_id" value="{$user->id}" class="btn btn-outline-danger">Revocar administrador</button> 
             <div>
-            <input type="checkbox" name="input_admin" value="{$user->admin}">
+            <input type="hidden" name="input_admin" value="0">
             </div>
         {/if}
             </li>
