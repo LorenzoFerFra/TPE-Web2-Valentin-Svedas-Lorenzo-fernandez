@@ -27,6 +27,10 @@
                     </ul>
                     
                 </div>
+                <div class="text-right text-red">
+                    <a href="usersEdit" class="text-danger">Admininistrar Users</a>
+                </div>
+
                 <div class="text-right text-white">{$userEmail} {if $userEmail neq NULL}
                     <a href="logout" class="text-danger">Logout</a>
                     {else}

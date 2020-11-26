@@ -73,6 +73,24 @@ class UserController{
         }else
             $this->view->ShowRegister("Faltan datos");
     }
+    function UsersEdit(){
+        if($this->authHelper->checkAdmin()){
+        $users = $this->model->GetUsers();
+        $this->view->ShowUsersEdit($users);
+    }else{
+        $this->viewVino->ShowHomeLocation();
+    }
+}
+    function editUser(){
+        $this->model->updateUser($_POST['input_admin'],$_POST['input_id']);
+        $this->view->ShowUsersLocation();
+    }
+
+    function deleteUser($params = null){
+            $id_user = $params[':ID'];
+            $this->model->DeleteUser($id_user);
+            $this->view->ShowUsersLocation();
+    }
 
 }
 

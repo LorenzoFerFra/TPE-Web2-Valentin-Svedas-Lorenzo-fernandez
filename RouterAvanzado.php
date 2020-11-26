@@ -36,8 +36,8 @@
     $r->addRoute("edit/editwine", "POST", "VinoController", "Edit");
     $r->addRoute("editCategorie/:ID", "GET", "CategoriaController", "EditCategorie"); 
     $r->addRoute("editCategorie/edit", "POST", "CategoriaController", "Edit");
-
-
+    
+    
     $r->addRoute("insert", "POST", "VinoController", "InsertWine");
     $r->addRoute("insertCategorie", "POST", "CategoriaController", "InsertCategorie");
 
@@ -50,12 +50,15 @@
     $r->addRoute("categorie/:ID", "GET", "CategoriaController", "Categorie");
 
     $r->addRoute("verifyUser", "POST", "UserController", "VerifyUser");
+    
+    $r->addRoute("usersEdit", "GET", "UserController", "UsersEdit");
+    $r->addRoute("deleteUser/:ID", "GET", "UserController", "deleteUser");
+    $r->addRoute("editUser", "POST", "UserController", "editUser");
 
     $r->addRoute("login", "GET", "UserController", "Login");
     $r->addRoute("logout", "GET", "UserController", "Logout");
     $r->addRoute("register", "GET", "UserController", "Register");
     $r->addRoute("registerUser", "POST", "UserController", "RegisterUser");
-
     //Ruta por defecto.
     $r->setDefaultRoute("VinoController", "Home");
 
