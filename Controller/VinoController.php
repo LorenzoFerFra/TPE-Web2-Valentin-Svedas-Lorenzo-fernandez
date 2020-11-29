@@ -31,6 +31,19 @@ class VinoController{
     function resetHome(){
         $this->view->ShowHomeLocation();
     }
+
+    function getWines(){
+        $this->authHelper->checkLoggedIn();
+        $valor=$_GET['input_valor'];
+        $buscar=$_GET['input_buscar'];
+        if(is_int($buscar)){ //comprueba que el valor buscado sea de valor integer
+            $wines= $this->model->getWineInteger($buscar,$valor);
+        }else{
+            $wines= $this->model->getWineString($buscar,$valor);
+        }
+        $categories = $this->modelCategoria->GetCategories();
+        $this->view->ShowHome($wines,$categories);
+    }
     
     function detailWine($params = null){
         $id_wine = $params[':ID'];

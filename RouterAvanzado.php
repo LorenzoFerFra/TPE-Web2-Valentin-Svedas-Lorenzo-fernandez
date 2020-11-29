@@ -31,6 +31,8 @@
     $r->addRoute("detalle/:ID", "GET", "VinoController", "detailWine");
     $r->addRoute("paginacion", "GET", "VinoController", "detailWines");
 
+    $r->addRoute("findWines", "GET", "VinoController", "getWines");
+
 
     $r->addRoute("edit/:ID", "GET", "VinoController", "EditWine"); 
     $r->addRoute("edit/editwine", "POST", "VinoController", "Edit");
