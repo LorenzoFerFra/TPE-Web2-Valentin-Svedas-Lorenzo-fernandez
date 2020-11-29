@@ -9,10 +9,23 @@ class VinoModel{
         
     }
 
-    function GetWines(){
+    function GetWines(){ //Trae todos los vinos
         $query = $this->db->prepare("SELECT * FROM vino");
         $query -> execute();
         return $query->fetchAll(PDO::FETCH_OBJ);
+    }
+    
+    function getWineInteger($buscar,$valor){ //buscar un vino por un atributo integer
+        $query = $this->db->prepare("SELECT * FROM vino WHERE $valor = ? ");
+        $query -> execute(array($buscar));
+        return $query->fetchAll(PDO::FETCH_OBJ);
+    }
+
+    function getWineString($buscar,$valor){//buscar un vino por un atributo string
+        $query = $this->db->prepare("SELECT * FROM vino WHERE $valor LIKE ?");
+        $query -> execute(array($buscar));
+        return $query->fetchAll(PDO::FETCH_OBJ);
+ 
     }
 
     function GetWine($id_wine){
