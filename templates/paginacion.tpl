@@ -39,7 +39,7 @@
                         {/if}
                     </td>
                     <td>
-                        {if isset($wine->imagen)}
+                        {if $wine->imagen != ''}
                             <img src="./{$wine->imagen}" class="img-fluid" class="rounded" width="20%" height="100px" alt="Responsive image"/>
                         {else}
                             <p>Sin imagen</p>

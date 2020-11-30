@@ -62,6 +62,12 @@ class VinoModel{
         $query->execute(array($id));
     }
 
+    function deleteImage($id){
+        $valorVacio='';
+        $query = $this->db->prepare("UPDATE vino SET imagen='$valorVacio' WHERE id=?");
+        $query->execute(array($id));
+    }
+
 }
 
 

@@ -85,13 +85,6 @@ class VinotecaView{
         $smarty->display('templates/categorie.tpl');
     }
 
-    function showUploadImage(){
-        $smarty = new Smarty();
-        $smarty->assign('titulo', $this->title);
-        $smarty->assign('userEmail', $this->userEmail);
-        $smarty->display('templates/insertImage.tpl');
-    }
-
 
     function ShowHomeLocation(){
        header("Location: ".BASE_URL."Home");

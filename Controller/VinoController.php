@@ -52,15 +52,11 @@ class VinoController{
          $this->view->ShowDetailWine($wine);
     }
 
-    function detailWines(){
+    function detailWines(){ //muestra todos los vinos detallados
         $this->authHelper->checkLoggedIn();
         $wines= $this->model->GetWines();
 
          $this->view->ShowDetailWines($wines);
-    }
-
-    function uploadImage(){
-        $this->view->showUploadImage();
     }
 
     function EditWine($params = null){
@@ -90,6 +86,15 @@ class VinoController{
             $this->view->ShowHomeLocation();
         }
         
+    }
+
+    function deleteImage($params = null){ //elimina la imgen del vino
+        $id=$params[':ID'];
+        
+        if($this->authHelper->checkAdmin()){
+            $this->model->deleteImage($id);
+            $this->view->ShowHomeLocation();
+        }
     }
 
     function InsertWine(){

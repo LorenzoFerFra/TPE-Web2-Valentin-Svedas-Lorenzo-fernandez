@@ -69,8 +69,15 @@
               ninguna
           {/if}
           </span>
+         <div class="row">
+          <div class="col">
+           <input type="file" name="input_image" id="imageToUpload">
+          </div>
+          <div class="col">
+            <a href="deleteImg/{$wine->id}"><button type="button" class="btn btn-outline-danger">Borrar imagen</button></a></li>
+          </div>
         </div>
-        <input type="file" name="input_image" id="imageToUpload">
+        </div>
     </div>
 
       <button type="sumbit" name="input_id" class="btn btn-secondary" value="{$wine->id}">Editar vino</button>

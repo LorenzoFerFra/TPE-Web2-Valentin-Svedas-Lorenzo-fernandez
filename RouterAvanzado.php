@@ -36,6 +36,7 @@
 
     $r->addRoute("edit/:ID", "GET", "VinoController", "EditWine"); 
     $r->addRoute("edit/editwine", "POST", "VinoController", "Edit");
+    $r->addRoute("edit/deleteImg/:ID", "GET", "VinoController", "deleteImage");
     $r->addRoute("editCategorie/:ID", "GET", "CategoriaController", "EditCategorie"); 
     $r->addRoute("editCategorie/edit", "POST", "CategoriaController", "Edit");
     
