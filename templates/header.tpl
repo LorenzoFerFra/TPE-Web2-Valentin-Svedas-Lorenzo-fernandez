@@ -32,6 +32,7 @@
                     <a href="usersEdit" class="text-danger">
                     Admininistrar Usuarios</a>
                     {/if}
+                    -
                 </div>
 
                 <div class="text-right text-white">{$userEmail} {if $userEmail neq NULL}
