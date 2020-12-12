@@ -16,7 +16,7 @@ class ApiVinotecaController extends ApiController{
         $this->view = new ApiView();
     }
 
-    function getComments(){
+    function getComments(){ //Agarra todos los comentarios
         $comments= $this->model->getComments();
         $this->view->response($comments, 200);
     }
@@ -38,7 +38,7 @@ class ApiVinotecaController extends ApiController{
     }
 
 
-    function deleteComment($params = null){
+    function deleteComment($params = null){ //Elimina comentario
         if($this->authHelper->checkAdminComments()){
 
             $id = $params[':ID'];
@@ -51,7 +51,7 @@ class ApiVinotecaController extends ApiController{
         }
     }
     
-    public function insertComment(){
+    public function insertComment(){ // Agrega comentario
         if($this->authHelper->checkUser()){
             $body = $this->getData();
             $comment = $this->model->insertComment($body->usuario,$body->comentario,$body->puntaje,$body->id_vino);

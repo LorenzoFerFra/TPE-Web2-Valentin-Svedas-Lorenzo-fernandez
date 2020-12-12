@@ -18,7 +18,7 @@ class AuthHelper{
         session_destroy();
     }
 
-    public function checkLoggedIn() {
+    public function checkLoggedIn() {//checkea que el usuario este logeado
         
         if (!isset($_SESSION['ID_USER'])) {
             header('Location: ' . LOGIN);
@@ -33,10 +33,14 @@ class AuthHelper{
     }
 
     public function checkAdmin(){
-        if($_SESSION['ADMIN'] == 0 || $_SESSION['ADMIN'] == null){
-            return false;
-        }else{
-            return true;
+        if (isset($_SESSION['ADMIN'])) {
+            if($_SESSION['ADMIN'] == 0 || $_SESSION['ADMIN'] == null){
+                return false;
+            }else{
+                return true;
+            }
+        }else {
+           return false;
         }
     }
     public function checkAdminComments(){

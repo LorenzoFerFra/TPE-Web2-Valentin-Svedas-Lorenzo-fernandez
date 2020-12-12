@@ -7,12 +7,14 @@ class VinotecaView{
 
     private $title;
     private $userEmail;
+    private $admin;
     
 
     function __construct(){
 
         $authHelper = new AuthHelper();
         $this->userEmail = $authHelper->getLoggedUserEmail();
+        $this->admin = $authHelper->checkAdmin();
         $this->title = "Vinoteca";
     }
 
@@ -22,6 +24,7 @@ class VinotecaView{
         $smarty->assign('wines', $wines);
         $smarty->assign('categorias', $category);
         $smarty->assign('userEmail', $this->userEmail);
+        $smarty->assign('admin', $this->admin);
       
         $smarty->display('templates/wines.tpl'); // muestro el template 
     }
@@ -31,6 +34,7 @@ class VinotecaView{
         $smarty->assign('wine', $wine);
         $smarty->assign('titulo', $this->title);
         $smarty->assign('userEmail', $this->userEmail);
+        $smarty->assign('admin', $this->admin);
       
         $smarty->display('templates/detalle.tpl');  
 
@@ -41,6 +45,7 @@ class VinotecaView{
         $smarty->assign('wines', $wines);
         $smarty->assign('titulo', $this->title);
         $smarty->assign('userEmail', $this->userEmail);
+        $smarty->assign('admin', $this->admin);
       
         $smarty->display('templates/paginacion.tpl');  
 
@@ -51,6 +56,7 @@ class VinotecaView{
         $smarty->assign('categorias', $category);
         $smarty->assign('titulo', $this->title);
         $smarty->assign('userEmail', $this->userEmail);
+        $smarty->assign('admin', $this->admin);
         
         $smarty->display('templates/categories.tpl');  
 
@@ -62,6 +68,7 @@ class VinotecaView{
         $smarty->assign('titulo', $this->title);
         $smarty->assign('categorias',$category);
         $smarty->assign('userEmail', $this->userEmail);
+        $smarty->assign('admin', $this->admin);
 
         $smarty->display('templates/editWine.tpl');
     }
@@ -71,6 +78,7 @@ class VinotecaView{
         $smarty->assign('categorie', $categorie);
         $smarty->assign('titulo', $this->title);
         $smarty->assign('userEmail', $this->userEmail);
+        $smarty->assign('admin', $this->admin);
 
         $smarty->display('templates/editCategorie.tpl');
     }
@@ -81,6 +89,7 @@ class VinotecaView{
         $smarty->assign('categoria',$category);
         $smarty->assign('wines', $wines);
         $smarty->assign('userEmail', $this->userEmail);
+        $smarty->assign('admin', $this->admin);
 
         $smarty->display('templates/categorie.tpl');
     }

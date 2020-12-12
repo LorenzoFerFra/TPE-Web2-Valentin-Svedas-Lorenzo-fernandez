@@ -26,18 +26,24 @@
             {foreach from=$wines item=vino}
             {if $vino->stock eq 1}
                 <li class="list-group-item list-group-item-success"><a href="detalle/{$vino->id}" class="text-light bg-dark">{$vino->nombre} </a><p>{$vino->descripcion}</p> 
-            <a href="edit/{$vino->id}"><button type="button" class="btn btn-outline-danger">Editar</button></a>
-            <a href="delete/{$vino->id}"><button type="button" class="btn btn-outline-danger">Borrar</button></a></li>
+                {if $admin eq true}   
+                    <a href="edit/{$vino->id}"><button type="button" class="btn btn-outline-danger">Editar</button></a>
+                    <a href="delete/{$vino->id}"><button type="button" class="btn btn-outline-danger">Borrar</button></a></li>
+                {/if}
             {else}
-                <li class="list-group-item"><a href="detalle/{$vino->id}" class="text-light bg-dark">{$vino->nombre} </a><p>{$vino->descripcion}</p> 
-            <a href="edit/{$vino->id}"><button type="button" class="btn btn-outline-danger">Editar</button></a>
-            <a href="delete/{$vino->id}"><button type="button" class="btn btn-outline-danger">Borrar</button></a></li>
+                {if $admin eq true}
+                    <li class="list-group-item"><a href="detalle/{$vino->id}" class="text-light bg-dark">{$vino->nombre} </a><p>{$vino->descripcion}</p> 
+                    <a href="edit/{$vino->id}"><button type="button" class="btn btn-outline-danger">Editar</button></a>
+                    <a href="delete/{$vino->id}"><button type="button" class="btn btn-outline-danger">Borrar</button></a></li>
+                {/if}
             {/if}
             {/foreach} 
         </ul>
     </div>
     
-
+    
+ {if $admin eq true}
 {include file="insertWine.tpl" }
+{/if}
 
 {include file="footer.tpl"}

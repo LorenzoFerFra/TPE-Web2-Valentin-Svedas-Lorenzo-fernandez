@@ -59,7 +59,7 @@ class UserController{
         $this->view->ShowRegister();
     }
 
-    function RegisterUser(){
+    function RegisterUser(){//registra al usuario en la base de datos y entra directamente
         $user = $_POST["input_user"];
         $pass = $_POST["input_pass"];
         if (!(empty($user)) && !(empty($pass))) {
