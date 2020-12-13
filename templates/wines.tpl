@@ -31,8 +31,8 @@
                     <a href="delete/{$vino->id}"><button type="button" class="btn btn-outline-danger">Borrar</button></a></li>
                 {/if}
             {else}
-                {if $admin eq true}
                     <li class="list-group-item"><a href="detalle/{$vino->id}" class="text-light bg-dark">{$vino->nombre} </a><p>{$vino->descripcion}</p> 
+                {if $admin eq true}
                     <a href="edit/{$vino->id}"><button type="button" class="btn btn-outline-danger">Editar</button></a>
                     <a href="delete/{$vino->id}"><button type="button" class="btn btn-outline-danger">Borrar</button></a></li>
                 {/if}
